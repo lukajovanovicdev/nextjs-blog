@@ -12,11 +12,11 @@ const handler = async (req, res) => {
 
     const newMessage = { email, name, message };
 
+    const connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.fkmsa.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`;
+
     let client;
     try {
-      client = await MongoClient.connect(
-        'mongodb+srv://admin:admin@cluster0.fkmsa.mongodb.net/my-blog?retryWrites=true&w=majority'
-      );
+      client = await MongoClient.connect(connectionString);
     } catch (e) {
       res.status(500).json({ message: "Couldn't connect to MongoDB" });
       return;
