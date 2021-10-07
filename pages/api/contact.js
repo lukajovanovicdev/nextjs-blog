@@ -12,7 +12,7 @@ const handler = async (req, res) => {
 
     const newMessage = { email, name, message };
 
-    const connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.fkmsa.mongodb.net/${MONGODB_DATABASE}?retryWrites=true&w=majority`;
+    const connectionString = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER}.fkmsa.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`;
 
     let client;
     try {
